@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
+    <title>Selamat Bertamah Usia dd</title>
+</head>
+
+<div class="nav-wrap"> 
+    <button class="nav-btn" onclick="changePage(2,event)">
+     💌 Click on the letter for the next letter ➜
+    </button>
+</div>
+
+<body>
+    <div class="card" onclick="toggleCardAndMusic()">
+            <div class="imgBox">
+                <div class="bark"></div>
+                <img src="dd.jpeg" alt="Deskripsi Foto">
+                
+                <div class="cover-text-container">
+                    <h2 class="cover-title">HAPPY BIRTHDAY !</h2>
+                    <p class="cover-small">Hilyah Qumairah</p>
+                </div>
+            </div>
+            <div class="details">
+            <!-- HALAMAN 1 PESAN UCAPAN --> 
+                <h4 class="color1"> Barakallah Fii Umrik dd </h4>
+                <h4>yang ke - 18</h4>
+                <P>Dear dd imup,</P>
+                <p>Semoga diberikan kesehatan <br><br><br> dan selalu dalam lindungan Allah. </p>
+                <p>Mudah -mudahan cita cita <br><br><br>dan harapanmu terwujud.</p>
+                <p>do'a menyertaimu selalu</p>
+                <p>jangan lupa selalu bersyukur dan <br><br><br>ibadahnya lebih ditingkatkan lagi </p>
+
+                <br>
+                <p class="text-right">Happi birtdai dd </p>
+                <p class="text-right">kk lope</p>
+            </div>
+
+            <div class="page page2"> <div class="page-content-wrapper"> <div class="column-left">
+                <img src="foto1.jpeg" class="photo">
+                <img src="foto2.jpeg" class="photo">
+            </div>
+            
+            <div class="column-right">
+                <h4>Our Memories 📸 </h4>
+                <p> STEP ON CHANGE <br> Terima kasih sudah memberikan yang terbaik dd 
+                <br>
+                harus jadi lebih kuat dan lebih sabar lagi ya dd, loff yuu mwahh
+                </p>
+            </div>
+
+    </div>
+        
+    <audio id="bgmusic" loop>
+        <source src="Hampstead - Ariana Grande (mp3cut.net).mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        let step = 0;
+
+        function toggleCardAndMusic() {
+            const music = document.getElementById('bgmusic');
+            
+            // Memulai musik saat klik pertama
+            if (music.paused) {
+                music.play();
+            }
+
+            const card = document.querySelector('.card');
+
+            if (step === 0) {
+                // Langkah 0: Buka Cover
+                card.classList.add("open");
+                step = 1;
+            } else if (step === 1) {
+                // Langkah 1: Buka Halaman 2
+                card.classList.add("open-page2");
+                step = 2;
+            } else {
+                // Reset ke posisi awal jika sudah di akhir
+                card.classList.remove("open", "open-page2");
+                step = 0;
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
+

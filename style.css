@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
+body{
+  font-family: 'Indie Flower', cursive !important;
+  background: #fde3a7;
+  margin: 0px;
+  padding: 0px;
+}
+
+::selection{
+  background: transparent;
+}
+
+h4{
+  font-size: 26px;
+  line-height: 1px;
+  font-family: 'Amatic SC', cursive !important;
+  color: rgb(129, 11, 80);
+}
+
+.color{
+  color: aqua;
+}
+
+.color1 {
+    color: rgb(129, 11, 80);
+}
+
+.card{
+  color: rgb(177,120,34);
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:300px;
+  height:400px;
+  background:#e0e1dc;
+  transform-style:preserve-3d;
+  transform:translate(-50%,-50%) perspective(2000px);
+  box-shadow: inset 300px 0 50px rgba(0,0,0,.2), 0 10px 30px rgba(0,0,0,.2);
+  transition:1s;
+}
+
+.card.open {
+ transform: translate(-50%,-50%) perspective(2000px) rotate(15deg) scale(1.2);
+ box-shadow: inset 20px 0 50px rgba(0,0,0,.5), 0 10px 100px rgba(0,0,0,.5);
+}
+
+.card:before {
+	content:'';
+	position: absolute;
+	top: -5px;
+	left: 0;
+	width: 100%;
+	height: 5px;
+	background: #BAC1BA;
+	transform-origin: bottom;
+	transform: skewX(-45deg);
+}
+
+.card:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: -5px;
+	width: 5px;
+	height: 100%;
+	background: #92A29C;
+	transform-origin: left;
+	transform: skewY(-45deg);
+}
+
+.card .imgBox {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-origin: left;
+    transition: .5s;
+    background: #e0e1dc; /* Warna dasar jika gambar loading */
+    overflow: hidden; /* Agar gambar tidak keluar dari kotak kartu */
+    box-sizing: border-box; /* SANGAT PENTING: Untuk padding */
+  
+    /* BUAT TATA LETAK MENJADI KOLOM VERTIKAL */
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start; /* Gambar di atas, teks di bawah */
+    align-items: center; /* Rata tengah secara horizontal */
+    padding: 15px; /* Memberikan ruang di sekeliling */
+}
+
+/* --- Mengatur Ukuran Gambar Cover --- */
+.card .imgBox img {
+  max-width: 100%;
+  max-height: 70%; /* Batasi tinggi gambar agar ada ruang untuk teks */
+  object-fit: contain; /* Gambar tidak terpotong */
+  margin-top: 10px; /* Jarak atas gambar */
+  margin-bottom: 10px; /* Jarak antara gambar dan teks */
+}
+
+/* --- Container untuk Teks Cover --- */
+.cover-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+/* --- Mengatur Font untuk Teks Cover (gunakan font Amatic SC seperti contoh) --- */
+.cover-title,
+.cover-subtitle,
+.cover-small {
+  font-family: 'Amatic SC', cursive; /* Pastikan font ini sudah di-import di HTML */
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Gaya Spesifik Teks Cover --- */
+.cover-title {
+  color: #a87f54; /* Warna cokelat contoh dinosaurus */
+  font-size: 28px; /* Sesuaikan ukuran */
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.cover-small {
+  color: #cf5d76; 
+  font-size: 25px;
+  margin-top: 3px;
+}
+
+.card .bark {
+	position: absolute;
+	background: #e0e1dc;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: .7s;
+}
+
+.card.open .imgBox {
+ transform: rotateY(-135deg);
+}
+
+.card.open .bark {
+	opacity: 1;
+	transition: .6s;
+  box-shadow: 300px 200px 100px rgba(0, 0, 0, .4) inset;
+}
+
+.card .details {
+	position: absolute;
+	top: 0;
+	left: 20px;
+	box-sizing: border-box;
+	padding: 0 0 0 10px;
+	z-index: -1;
+	margin-top: 20px;
+}
+
+.card .details p {
+	font-size: 15px;
+	line-height: 5px;
+	transform: rotate(-10deg);
+	padding: 0 0 0 20px;
+}
+
+.card .details h4 {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+/* tombol pojok kanan bawah */
+.nav-wrap{
+position:fixed;
+bottom:30px;
+right:30px;
+display:flex;
+gap:10px;
+z-index:9999;
+}
+
+.nav-btn{
+border:none;
+padding:12px 20px;
+border-radius:30px;
+font-size:16px;
+cursor:pointer;
+background:#f6d7c3;
+box-shadow:0 4px 10px rgba(0,0,0,.2);
+transition:.3s;
+}
+
+.nav-btn:hover{
+transform:scale(1.05);
+}
